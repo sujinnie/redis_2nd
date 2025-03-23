@@ -1,4 +1,4 @@
-package org.cinema_project.module.movieapi;
+package org.cinema_project.movieapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

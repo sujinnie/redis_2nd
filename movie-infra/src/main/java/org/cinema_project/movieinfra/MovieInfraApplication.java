@@ -1,4 +1,4 @@
-package org.cinema_project.module.movieinfra;
+package org.cinema_project.movieinfra;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

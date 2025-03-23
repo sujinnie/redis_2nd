@@ -1,4 +1,4 @@
-package org.cinema_project.module.moviecore;
+package org.cinema_project.moviedomain;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

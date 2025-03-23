@@ -1,13 +1,13 @@
-package org.cinema_project.module.movieapi;
+package org.cinema_project.movieinfra;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MovieApiApplicationTests {
+class MovieInfraApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
