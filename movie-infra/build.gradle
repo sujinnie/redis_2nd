@@ -1,29 +1,18 @@
+// movie-infra 모듈은 JPA, Redis 등 인프라스트럭처 기술과 관련된 구현 담당
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.4.3'
-    id 'io.spring.dependency-management' version '1.1.7'
-}
-
-group = 'org.cinema_project.module'
-version = '0.0.1-SNAPSHOT'
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
-}
-
-repositories {
-    mavenCentral()
+    id 'java-library'
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    runtimeOnly 'com.mysql:mysql-connector-j'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
+    // 도메인 계층에 정의된 인터페이스 구현체를 작성하므로 도메인에 의존
+    implementation project(':movie-domain')
 
-tasks.named('test') {
-    useJUnitPlatform()
+    // JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Redis 캐싱 기능을 사용할 경우
+//    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    // JDBC 드라이버 (MySQL)
+    runtimeOnly 'com.mysql:mysql-connector-j'
 }

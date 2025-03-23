@@ -1,4 +1,4 @@
 rootProject.name = 'cinema_project'
 include 'movie-api'
-include 'movie-core'
+include 'movie-domain'
 include 'movie-infra'
