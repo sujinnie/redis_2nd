@@ -12,21 +12,10 @@ Layered 아키텍쳐를 기반으로 멀티모듈 디자인을 적용
 ### 멀티모듈 구조 및 의존 관계
 
 ```plaintext
-[ 사용자 요청 ]
-       ↓
-  ┌────────────┐
-  │ movie-api  │  ← Controller, DTO, ...
-  └────┬───────┘
-       │
-       ├──────────────┐
-       ↓              ↓
-┌─────────────┐   ┌─────────────┐
-│ movie-domain│   │ movie-infra │
-│  ───────────│   │ ─────────── │
-│  Entity     │   │  JPA 구현체  │ 
-│  Service    │   │ DB 관련 설정  │ 
-│  Repository │   │  외부 연동    │ 
-└─────────────┘   └─────────────┘
+movie-reservation/           
+├── movie-api/               ← API 모듈 (Controller, DTO)
+├── movie-domain/            ← 도메인 모듈 (Entity, Service, Interface)
+└── movie-infra/             ← 인프라 모듈 (DB설정, Redis관련 설정 등)
 
 의존 방향
 - movie-api     → movie-domain, movie-infra
@@ -35,12 +24,12 @@ Layered 아키텍쳐를 기반으로 멀티모듈 디자인을 적용
   (movie-domain은 외부(JPA, Redis, Spring 등)에 의존하지 않도록 설계)
 ```
 ### 1. movie-api 모듈
-- 클라이언트와 직접 통신하는 **Controller 계층**을 포함
+- 클라이언트와 직접 통신
 - 외부 요청을 받아 도메인 계층에 비즈니스 로직 실행을 요청하고 응답을 반환
 - REST API 진입점이며, 레이어드 아키텍쳐의 프레젠테이션 레이어에 해당
 
 ### 2. movie-domain 모듈 
-- 핵심 **비즈니스 로직과 규칙**을 구현하는 계층
+- 핵심 비즈니스 로직과 규칙을 구현하는 계층
 - Entity, Service, Repository 인터페이스 등을 포함
 - 외부 기술이나 시스템에 의존하지 않도록 설계
 

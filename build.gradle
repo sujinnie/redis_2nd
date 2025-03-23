@@ -23,13 +23,13 @@ configurations {
 	}
 }
 
-repositories {
-	mavenCentral()
-}
-
 allprojects {
-	group = 'org.cinema_project.module'
+	group = 'org.cinema_project'
 	version = '0.0.1-SNAPSHOT'
+
+	repositories {
+		mavenCentral()
+	}
 }
 
 subprojects {
